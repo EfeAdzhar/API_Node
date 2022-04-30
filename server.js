@@ -54,6 +54,13 @@ app.put('/coordinates/:id', function (req, res) {
     res.send(coordinate)
 })
 
+app.delete('/coordinates/:id', function (req, res) {
+    coordinates = coordinates.filter(function(coordinate) {
+        return coordinate.id !== Number(req.params.id)
+    })
+    res.sendStatus(200);
+})
+
 app.listen(3000, function () {
     console.log('API app start')
 })
